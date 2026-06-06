@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfiguration = {
-      station = nixpkgs.lib.nixosSystem {
+      ruzenhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
