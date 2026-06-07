@@ -1,9 +1,33 @@
-{ config, pkgs, ...}:
+{ inputs, config, pkgs, ...}:
+let 
+  everforest = {
+    bg_dim     = "#1e2326";
+    bg0        = "#272e33";
+    bg1        = "#2e383e";
+    bg2        = "#374145";
+    fg         = "#d3c6aa";
+    red        = "#e67e80";
+    orange     = "#e69875";
+    yellow     = "#dbbc7f";
+    green      = "#a7c080";
+    blue       = "#7fbbb3";
+    purple     = "#d699b6";
+    aqua       = "#83c092";
+    gray       = "#859289";
+  };
+in
 {
   home.username = "ruzen42";
   home.homeDirectory = "/home/ruzen42";
 
+  imports = [ 
+    inputs.niri-flake.homeModules.niri 
+    ./kitty.nix
+  ];
+
   home.packages = with pkgs; [
+    quickshell
+    nerd-fonts.jetbrains-mono
     niri
     waybar
     wofi
@@ -27,92 +51,51 @@
 
   home.stateVersion = "26.05";
 
-  xdg.configFile."niri/config.kdl".text = ''
-    spawn-at-startup "swaybg" "-i" "/etc/nixos/background.jpg" "-m" "fill"
-    spawn-at-startup "waybar" 
+  programs.niri.settings = {
+  spawn-at-startup = [
+    { command = [ "swaybg" "-i" "/etc/nixos/background.png" "-m" "fill" ]; }
+    { command = [ "quickshell" ]; } 
+  ];
+
+  input = {
+    keyboard = {
+      xkb = {
+        layout = "us,ru";
+        variant = "dvorak,";
+        options = "grp:caps_toggle";
+      };
+    };
+  };
+
+  binds = {
+    "Mod+Shift+T".action.spawn = [ "alacritty" ];
+    "Mod+Shift+C".action.close-window = [];
+
+    "Mod+R".action.spawn = [ "wofi" "--show" "drun" ];
+    "Mod+Left".action.focus-column-left = [];
+    "Mod+Right".action.focus-column-right = [];
+
+    "Mod+Shift+Right".action.move-column-right = [];
+    "Mod+Shift+Left".action.move-column-left = [];
     
-    input {
-      keyboard {
-        xkb {
-          layout "us,ru"
-          variant "dvorak,"
-          options "grp:caps_toggle"
-        }
-      }
-    }
+    "Mod+L".action.focus-workspace-up = [];
+    "Mod+D".action.focus-workspace-down = [];
+    "Mod+Shift+E".action.quit = [];
+  };
 
-    binds {
-      "Mod+Shift+T" { spawn "alacritty"; }
-      "Mod+Shift+C" { close-window; }
+  layout = {
+    gaps = 8;
+    center-focused-column = "never";
+    default-column-width = { proportion = 0.5; };
 
-      "Mod+R" { spawn "wofi" "--show" "drun"; }
-      "Mod+Left" { focus-column-left; }
-      "Mod+Right" { focus-column-right; }
+    focus-ring = {
+      width = 2;
+      active.color = "#A7C080";
+      inactive.color = "#7A8478";
+    };
+  };
+  };
 
-      "Mod+Shift+Right" { move-column-right; }
-      "Mod+Shift+Left" { move-column-left; }
-      
-      "Mod+L"   { focus-workspace-up;   }
-      "Mod+D"   { focus-workspace-down; }
-      "Mod+Shift+E" { quit; }
-
-    }
-
-    layout {
-      gaps 8
-      center-focused-column "never"
-      default-column-width { proportion 0.5; }
-
-      focus-ring {
-        width 2 
-        active-color "#A7C080"
-        inactive-color "#7A8478"
-      }
-    }
-
-
-  '';
-
-  xdg.configFile."waybar/style.css".text = ''
-  * {
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
-    font-size: 13px;
-    border: none;
-    border-radius: 0;
-  }
-
-  window#waybar {
-    background-color: rgba(30, 30, 46, 0.9);
-    color: #cdd6f4;
-    border-bottom: 2px solid #313244;
-  }
-
-  #workspaces button {
-    padding: 0 5px;
-    color: #6c7086;
-  }
-
-  #workspaces button.focused {
-    color: #7fc8ff;
-    border-bottom: 2px solid #7fc8ff;
-  }
-
-  #workspaces button.active {
-    color: #7fc8ff;
-  }
-
-  #clock, #cpu, #memory, #network, #pulseaudio, #tray {
-    padding: 0 10px;
-    margin: 4px 2px;
-    background-color: #313244;
-    border-radius: 6px;
-  }
-
-  #clock {
-    background-color: transparent;
-    font-weight: bold;
-  }
-'';
   xdg.configFile."fastfetch/config.jsonc".text = ''
     {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
@@ -261,7 +244,7 @@
     enable = true;
     
     theme = {
-      name = "Everforest-Dark-BL";
+      name = "Everforest-Dark";
       package = pkgs.everforest-gtk-theme;
     };
 
@@ -275,4 +258,80 @@
       size = 11;
     };
   };
+
+  xdg.configFile."quickshell/shell.qml".text = ''
+    import QtQuick
+    import Quickshell
+    import Quickshell.Wayland
+
+    ShellRoot {
+        VariantsWindow {
+            // Привязка к панелям Wayland (работает в Niri)
+            WlrLayerSurface {
+                anchors.top: true
+                anchors.left: true
+                anchors.right: true
+                exclusionMode: WlrLayerSurface.ExclusionMode.Exclusive
+                layer: WlrLayerSurface.Layer.Top
+                
+                // Высота панели
+                height: 32
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                color: "${everforest.bg0}" // Цвет фона панели
+
+                // Бордер снизу для акцента
+                border.color: "${everforest.bg2}"
+                border.width: 1
+
+                Row {
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 15
+
+                    Text {
+                        text: "󰣇" // Иконка NixOS (нужен Nerd Font)
+                        color: "${everforest.blue}"
+                        font.pixelSize: 16
+                    }
+                    
+                    Text {
+                        text: "niri"
+                        color: "${everforest.fg}"
+                        font.bold: true
+                    }
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    color: "${everforest.green}"
+                    font.family: "JetBrainsMono Nerd Font"
+                    font.pixelSize: 14
+                    
+                    // Простейший таймер для обновления времени
+                    text: new Date().toLocaleTimeString(Qt.locale(), "hh:mm")
+                    Timer {
+                        interval: 60000; running: true; repeat: true
+                        onTriggered: parent.text = new Date().toLocaleTimeString(Qt.locale(), "hh:mm")
+                    }
+                }
+
+                // Справа: Статус (Пример статического текста, можно расширить)
+                Row {
+                    anchors.right: parent.right
+                    anchors.rightMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 10
+
+                    Text { text: "󰕾 80%"; color: "${everforest.orange}" }
+                    Text { text: "󰂄 100%"; color: "${everforest.aqua}" }
+                }
+            }
+        }
+    }
+'';
+
 }

@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake.url = "github:sodiboo/niri-flake";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -19,6 +20,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+	    home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.ruzen42 = import ./users/ruzen42/home.nix;
           }
         ];
