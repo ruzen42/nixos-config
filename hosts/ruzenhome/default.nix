@@ -5,6 +5,7 @@
     [ 
       ./hardware.nix
       ../../modules/core
+      ../../modules/core/services.nix
       ../../modules/desktop
       ../../modules/hardware
       ../../users/ruzen42
