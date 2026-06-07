@@ -1,9 +1,50 @@
 { config, pkgs, ... }:
+let 
+  sddm-everforest-theme = pkgs.stdenv.mkDerivation {
+    name = "sddm-everforest-theme";
+    src = pkgs.fetchFromGitHub {
+      owner = "MarianArlt";
+      repo = "sddm-sugar-dark";
+      rev = "v1.2";
+      sha256 = "C3qB9hFUeuT5+Dos2zFj5SyQegnghpoFV9wHvE9VoD8=";
+    };
+    
+    installPhase = ''
+      mkdir -p $out/share/sddm/themes/everforest
+      cp -r * $out/share/sddm/themes/everforest
+      
+      # Меняем цвета в теме под палитру Everforest (background и accent)
+      cat <<EOF > $out/share/sddm/themes/everforest/theme.conf
+      [General]
+      Background="Background.jpg"
+      ScaleImage=cropped
+      ScreenWidth=1920
+      ScreenHeight=1080
+      ThemeColor="#2d353b"
+      AccentColor="#a7c080"
+      MainColor="#d3c6aa"
+      Font="JetBrainsMono Nerd Font"
+      FontSize=11
+      EOF
+
+      # Скачиваем минималистичный Everforest фон (замени ссылку, если хочешь свой)
+      # Используем заглушку, либо ты можешь подкинуть свою картинку
+    '';
+  };
+in
 {
   services.xserver.xkb = {
     layout = "us,ru";
     variant = "dvorak";
     options = "grp:caps_toggle";
+  };
+
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "everforest";
+    };
   };
   
   console.useXkbConfig = true;
@@ -41,4 +82,10 @@
     VST3_PATH = makePluginPath "vst3";
     CLAP_PATH = makePluginPath "clap";  
   };
+
+  environment.systemPackages = [
+    sddm-everforest-theme
+  ];
+
+  services.displayManager.sessionPackages = [ pkgs.niri ];
 }

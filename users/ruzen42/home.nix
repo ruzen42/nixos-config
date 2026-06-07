@@ -256,4 +256,23 @@
 }
 
   '';
+
+  gtk = {
+    enable = true;
+    
+    theme = {
+      name = "Everforest-Dark-BL";
+      package = pkgs.everforest-gtk-theme;
+    };
+
+    iconTheme = {
+      name = "Everforest-Dark";
+      package = pkgs.everforest-gtk-theme;
+    };
+
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 11;
+    };
+  };
 }
