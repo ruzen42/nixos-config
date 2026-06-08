@@ -40,6 +40,7 @@ in
     font-awesome
     thunar
     fastfetch
+    xwayland-satellite
   ];
 
   programs.git.settings = {
@@ -56,6 +57,7 @@ in
     { command = [ "waybar" ]; }
   ];
 
+  xwayland-satellite.enable = true;
 
   input = {
     keyboard = {
@@ -71,6 +73,9 @@ in
     "Mod+Shift+T".action.spawn = [ "alacritty" ];
     "Mod+Shift+C".action.close-window = [];
 
+    "Mod+F".action.maximize-column = [];
+    "Mod+E".action.switch-preset-column-width = [ "set-column-width" ];
+
     "Mod+R".action.spawn = [ "wofi" "--show" "drun" ];
     "Mod+Left".action.focus-column-left = [];
     "Mod+Right".action.focus-column-right = [];
@@ -81,7 +86,8 @@ in
     "Mod+L".action.focus-workspace-up = [];
     "Mod+D".action.focus-workspace-down = [];
     "Mod+Shift+E".action.quit = [];
-    "Mod".action.open-overview = [];
+    "Mod+M".action.open-overview = [];
+    "Print".action.screenshot = [];
   };
 
   layout = {
