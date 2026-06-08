@@ -44,7 +44,11 @@ in
       enable = true;
       wayland.enable = true;
       theme = "everforest";
+      autoLogin.user = "ruzen42";
+      autoLogin.enable = true; 
     };
+
+    defaultSession = "niri";
   };
   
   console.useXkbConfig = true;
