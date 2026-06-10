@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-flake.url = "github:sodiboo/niri-flake";
+    musnix.url = "github:musnix/musnix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -17,6 +18,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/ruzenhome
+          inputs.musnix.nixosModules.musnix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
