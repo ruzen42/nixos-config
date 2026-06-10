@@ -91,6 +91,6 @@ in
   services.displayManager.sessionPackages = [ pkgs.niri ];
 
   musnix.enable = true;
-  musnix.kernel.realtime = true;
+  #musnix.kernel.realtime = true;
 
 }
