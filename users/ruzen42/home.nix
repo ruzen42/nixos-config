@@ -74,7 +74,6 @@ in
     "Mod+Shift+C".action.close-window = [];
 
     "Mod+F".action.maximize-column = [];
-    "Mod+E".action.switch-preset-column-width = [ "set-column-width" ];
 
     "Mod+R".action.spawn = [ "wofi" "--show" "drun" ];
     "Mod+Left".action.focus-column-left = [];

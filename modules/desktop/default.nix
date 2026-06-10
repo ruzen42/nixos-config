@@ -13,7 +13,6 @@ let
       mkdir -p $out/share/sddm/themes/everforest
       cp -r * $out/share/sddm/themes/everforest
       
-      # Меняем цвета в теме под палитру Everforest (background и accent)
       cat <<EOF > $out/share/sddm/themes/everforest/theme.conf
       [General]
       Background="Background.jpg"
@@ -27,8 +26,6 @@ let
       FontSize=11
       EOF
 
-      # Скачиваем минималистичный Everforest фон (замени ссылку, если хочешь свой)
-      # Используем заглушку, либо ты можешь подкинуть свою картинку
     '';
   };
 in
@@ -92,4 +89,18 @@ in
   ];
 
   services.displayManager.sessionPackages = [ pkgs.niri ];
+
+  environment.pathsToLink = [ "/lib/lv2" "/lib/vst3" "/lib/ladspa" ];
+
+  environment.variables = let
+    makePluginPath = format: (pkgs.lib.makeSearchPath format [
+      "$HOME/.nix-profile/lib"
+      "/run/current-system/sw/lib"
+      "/etc/profiles/per-user/$USER/lib"
+    ]) + ":$HOME/.${format}";
+  in {
+    LV2_PATH = makePluginPath "lv2";
+    VST3_PATH = makePluginPath "vst3";
+    LADSPA_PATH = makePluginPath "ladspa";
+  };
 }
