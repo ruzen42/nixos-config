@@ -45,6 +45,8 @@ programs.niri.settings = {
     "Mod+M".action.open-overview = [];
     "Print".action.screenshot = [];
   };
+  
+  prefer-no-csd = true;
 
   layout = {
     gaps = 8;
@@ -63,12 +65,10 @@ programs.niri.settings = {
     };
   };
 
-    outputs = {
-      "DP-2".mode = {
-        height = 1080;
-        width = 1080;
-        refresh = 165.001;
-      };
-    };
+    outputs."DP-2".mode = {
+      height = 1080;
+      width = 1920;
+      refresh = 165.001;
+    }; 
   };
 }

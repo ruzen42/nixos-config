@@ -8,6 +8,7 @@
       ../../modules/core/services.nix
       ../../modules/desktop
       ../../modules/games
+      ../../modules/bluetooth
       ../../modules/hardware
       ../../users/ruzen42
     ];

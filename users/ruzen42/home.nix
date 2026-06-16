@@ -22,15 +22,12 @@ in
 
   imports = [ 
     ./niri
-    inputs.mclauncher
   ];
 
   home.packages = with pkgs; [
-    mclauncher.packages."x86_64".default
-    quickshell
+    inputs.mclauncher.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
     niri
-    waybar
     wofi
     swaybg
     alacritty
@@ -44,6 +41,7 @@ in
     fastfetch
     xwayland-satellite
     audacious
+    thunderbird
   ];
 
   programs.git.settings = {

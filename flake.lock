@@ -21,6 +21,43 @@
         "type": "github"
       }
     },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772016279,
+        "narHash": "sha256-7itkptyjoRcXfGLwg1/jxajetZ3a4mDc66+w4X6yW8s=",
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "rev": "687e43031df0dc641984b4256bcca50d5b3f7de3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "type": "github"
+      }
+    },
+    "mclauncher": {
+      "inputs": {
+        "libnbtplusplus": "libnbtplusplus",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780747496,
+        "narHash": "sha256-d/RZVoxzhG3DMqtr2FkyA8HTKAQiVMqGe9hNItd3dKw=",
+        "owner": "ElyPrismLauncher",
+        "repo": "Launcher",
+        "rev": "513b857d0701dd1e019589f315619c83c4c43a1a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ElyPrismLauncher",
+        "repo": "Launcher",
+        "type": "github"
+      }
+    },
     "musnix": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -162,6 +199,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "mclauncher": "mclauncher",
         "musnix": "musnix",
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs_3"
