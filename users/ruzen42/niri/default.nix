@@ -20,6 +20,8 @@ programs.niri.settings = {
     };
   };
 
+  xwayland-satellite.enable = true;
+
   overview = {
     workspace-shadow.color = "#4F5B58";
   };
@@ -62,7 +64,7 @@ programs.niri.settings = {
   };
 
     outputs = {
-      mode = {
+      "DP-2".mode = {
         height = 1080;
         width = 1080;
         refresh = 165.001;

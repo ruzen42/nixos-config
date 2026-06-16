@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ inputs, config, pkgs, ...}:
 let 
   everforest = {
     bg_dim     = "#1e2326";
@@ -22,9 +22,11 @@ in
 
   imports = [ 
     ./niri
+    inputs.mclauncher
   ];
 
   home.packages = with pkgs; [
+    mclauncher.packages."x86_64".default
     quickshell
     nerd-fonts.jetbrains-mono
     niri
@@ -51,10 +53,6 @@ in
   };
 
   home.stateVersion = "26.05";
-
-   xwayland-satellite.enable = true;
-
-  
 
   xdg.configFile."fastfetch/config.jsonc".text = ''
     {

@@ -9,9 +9,13 @@
     };
     niri-flake.url = "github:sodiboo/niri-flake";
     musnix.url = "github:musnix/musnix";
+    mclauncher = {
+      url = "github:ElyPrismLauncher/Launcher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, musnix, mclauncher, ... }@inputs: {
     nixosConfigurations = {
       ruzenhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -22,7 +26,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-	    home-manager.extraSpecialArgs = { inherit inputs; };
+	          home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.ruzen42 = import ./users/ruzen42/home.nix;
           }
         ];
