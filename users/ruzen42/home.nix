@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ...}:
+{ config, pkgs, ...}:
 let 
   everforest = {
     bg_dim     = "#1e2326";
@@ -21,7 +21,7 @@ in
   home.homeDirectory = "/home/ruzen42";
 
   imports = [ 
-    inputs.niri-flake.homeModules.niri 
+    ./niri
   ];
 
   home.packages = with pkgs; [
@@ -41,6 +41,7 @@ in
     thunar
     fastfetch
     xwayland-satellite
+    audacious
   ];
 
   programs.git.settings = {
@@ -51,61 +52,9 @@ in
 
   home.stateVersion = "26.05";
 
-  programs.niri.settings = {
-  spawn-at-startup = [
-    { command = [ "swaybg" "-i" "/etc/nixos/background.png" "-m" "fill" ]; }
-    { command = [ "waybar" ]; }
-  ];
+   xwayland-satellite.enable = true;
 
-  xwayland-satellite.enable = true;
-
-  input = {
-    keyboard = {
-      xkb = {
-        layout = "us,ru";
-        variant = "dvorak,";
-        options = "grp:caps_toggle";
-      };
-    };
-  };
-
-  binds = {
-    "Mod+Shift+T".action.spawn = [ "alacritty" ];
-    "Mod+Shift+C".action.close-window = [];
-
-    "Mod+F".action.maximize-column = [];
-
-    "Mod+R".action.spawn = [ "wofi" "--show" "drun" ];
-    "Mod+Left".action.focus-column-left = [];
-    "Mod+Right".action.focus-column-right = [];
-
-    "Mod+Shift+Right".action.move-column-right = [];
-    "Mod+Shift+Left".action.move-column-left = [];
-    
-    "Mod+L".action.focus-workspace-up = [];
-    "Mod+D".action.focus-workspace-down = [];
-    "Mod+Shift+E".action.quit = [];
-    "Mod+M".action.open-overview = [];
-    "Print".action.screenshot = [];
-  };
-
-  layout = {
-    gaps = 8;
-    center-focused-column = "never";
-    default-column-width = { proportion = 0.5; };
-
-    tab-indicator = {
-      enable = true;
-      corner-radius = 8;
-    };
-
-    focus-ring = {
-      width = 2;
-      active.color = "#A7C080";
-      inactive.color = "#7A8478";
-    };
-  };
-  };
+  
 
   xdg.configFile."fastfetch/config.jsonc".text = ''
     {

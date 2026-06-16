@@ -7,6 +7,7 @@
       ../../modules/core
       ../../modules/core/services.nix
       ../../modules/desktop
+      ../../modules/games
       ../../modules/hardware
       ../../users/ruzen42
     ];
