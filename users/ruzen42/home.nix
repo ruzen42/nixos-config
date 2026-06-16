@@ -34,7 +34,6 @@ in
     firefox
     discord
     telegram-desktop
-    unityhub
     zsh
     font-awesome
     thunar
@@ -42,6 +41,9 @@ in
     xwayland-satellite
     audacious
     thunderbird
+    qpwgraph
+    ardour
+    guitarix
   ];
 
   programs.git.settings = {
