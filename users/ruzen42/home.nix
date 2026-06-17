@@ -32,6 +32,7 @@ in
     alacritty
     discord
     ungoogled-chromium
+    github-cli
     telegram-desktop
     zsh
     font-awesome

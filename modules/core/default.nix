@@ -15,6 +15,11 @@
 
   environment.systemPackages = with pkgs; [ neovim wget2 btop git ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 }
 
 
