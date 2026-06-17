@@ -8,7 +8,6 @@
     spawn-at-startup = [
       { command = [ "swaybg" "-i" "/etc/nixos/background.png" "-m" "fill" ]; }
       { command = [ "waybar" ]; }
-      { command = [ "elephant" ]; }
     ];
 
     input = {
@@ -34,7 +33,7 @@
 
     "Mod+F".action.maximize-column = [];
 
-    "Mod+R".action.spawn = [ "walker" ];
+    "Mod+R".action.spawn = [ "fuzzel" ];
     "Mod+Left".action.focus-column-left = [];
     "Mod+Right".action.focus-column-right = [];
 

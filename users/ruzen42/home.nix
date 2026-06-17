@@ -29,6 +29,7 @@ in
     nerd-fonts.jetbrains-mono
     niri
     swaybg
+    fuzzel
     alacritty
     discord
     ungoogled-chromium
@@ -44,8 +45,6 @@ in
     qpwgraph
     ardour
     guitarix
-    walker
-    elephant
   ];
 
   programs.git.settings = {
@@ -141,7 +140,7 @@ in
     };
 
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "IBM Plex Mono";
       size = 11;
     };
   };
