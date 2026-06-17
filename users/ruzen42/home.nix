@@ -31,6 +31,7 @@ in
     swaybg
     alacritty
     discord
+    ungoogled-chromium
     telegram-desktop
     zsh
     font-awesome
@@ -45,25 +46,6 @@ in
     walker
     elephant
   ];
-
-  programs.chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium; 
-
-    extraOpts = {
-      "BrowserSignin" = 0;                  
-      "SyncDisabled" = true;               
-      "PasswordManagerEnabled" = false;   
-      "SafeBrowsingProtectionLevel" = 0;   
-      "PrivacySandboxAdTopicsEnabled" = false; 
-      "SearchSuggestEnabled" = false;       
-      "MetricsReportingEnabled" = false;   
-    };
-
-    extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" 
-    ];
-  };
 
   programs.git.settings = {
     enable = true;

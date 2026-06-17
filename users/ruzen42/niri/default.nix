@@ -4,21 +4,23 @@
     inputs.niri-flake.homeModules.niri 
   ];
 
-programs.niri.settings = {
-  spawn-at-startup = [
-    { command = [ "swaybg" "-i" "/etc/nixos/background.png" "-m" "fill" ]; }
-    { command = [ "waybar" ]; }
-  ];
-  input = {
-    keyboard = {
-      xkb = {
-        layout = "us,ru";
-        variant = "dvorak,";
-        options = "grp:caps_toggle";
+  programs.niri.settings = {
+    spawn-at-startup = [
+      { command = [ "swaybg" "-i" "/etc/nixos/background.png" "-m" "fill" ]; }
+      { command = [ "waybar" ]; }
+      { command = [ "elephant" ]; }
+    ];
+
+    input = {
+      keyboard = {
+        xkb = {
+          layout = "us,ru";
+          variant = "dvorak,";
+          options = "grp:caps_toggle";
+        };
+        numlock = true;
       };
-      numlock = true;
     };
-  };
 
   xwayland-satellite.enable = true;
 
@@ -32,7 +34,7 @@ programs.niri.settings = {
 
     "Mod+F".action.maximize-column = [];
 
-    "Mod+R".action.spawn = [ "wofi" "--show" "drun" ];
+    "Mod+R".action.spawn = [ "walker" ];
     "Mod+Left".action.focus-column-left = [];
     "Mod+Right".action.focus-column-right = [];
 
