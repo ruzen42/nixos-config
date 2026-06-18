@@ -32,7 +32,7 @@
     };
 
     binds = {
-      "Mod+Shift+T".action.spawn = [ "alacritty" ];
+      "Mod+Shift+T".action = { spawn = [ "alacritty" ]; };
       "Mod+Shift+C".action.close-window = [];
 
       "Mod+F".action.maximize-column = [];

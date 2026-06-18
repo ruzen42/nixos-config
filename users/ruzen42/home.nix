@@ -30,6 +30,7 @@
     qpwgraph
     ardour
     guitarix
+    quickshell
   ];
 
   programs.git.settings = {
@@ -60,6 +61,7 @@
   xdg.configFile."fuzzel/fuzzel.ini".source = ./fuzzel/fuzzel.ini;
   xdg.configFile."alacritty/alacritty.toml".source = ./alacritty/alacritty.toml;
   xdg.configFile."fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
+  xdg.configFile."quickshell/shell.qml".source = ./quickshell/shell.qml;
 
   home.stateVersion = "26.05";
 }
