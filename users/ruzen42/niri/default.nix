@@ -4,8 +4,8 @@
 
   programs.niri.settings = {
     spawn-at-startup = [
-      { command = [ "swaybg" "-i" "/etc/nixos/background.png" "-m" "fill" ]; }
-      { command = [ "waybar" ]; }
+      { command = [ "wall-set" "/etc/nixos/walls" ]; }
+      { command = [ "quickshell" ]; }
     ];
 
     input = {
