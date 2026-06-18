@@ -32,7 +32,7 @@
     };
 
     binds = {
-      #"Mod+Shift+T".action = { spawn = [ "alacritty" ]; };
+      "Mod+G".action = { spawn = [ "alacritty" ]; };
       "Mod+Shift+C".action.close-window = [];
 
       "Mod+F".action.maximize-column = [];
@@ -54,12 +54,12 @@
     prefer-no-csd = true;
 
     layout = {
-      gaps = 10;
+      gaps = 5;
       center-focused-column = "never";
       default-column-width = { proportion = 0.5; };
 
       focus-ring = {
-        width = 3;
+        width = 2;
         active.color = "#A7C080";
         inactive.color = "#7A8478";
       };
@@ -75,10 +75,10 @@
       {
         matches = [];
         geometry-corner-radius = {
-          bottom-left = 7.0;
-          bottom-right = 7.0;
-          top-right = 7.0;
-          top-left = 7.0;
+          bottom-left = 5.0;
+          bottom-right = 5.0;
+          top-right = 5.0;
+          top-left = 5.0;
         };
         clip-to-geometry = true;
       }
