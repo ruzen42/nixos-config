@@ -32,7 +32,7 @@
     };
 
     binds = {
-      "Mod+Shift+T".action = { spawn = [ "alacritty" ]; };
+      #"Mod+Shift+T".action = { spawn = [ "alacritty" ]; };
       "Mod+Shift+C".action.close-window = [];
 
       "Mod+F".action.maximize-column = [];
@@ -73,8 +73,13 @@
 
     window-rules = [
       {
-        match = [];
-        geometry-corner-radius = 7;
+        matches = [];
+        geometry-corner-radius = {
+          bottom-left = 7.0;
+          bottom-right = 7.0;
+          top-right = 7.0;
+          top-left = 7.0;
+        };
         clip-to-geometry = true;
       }
     ];

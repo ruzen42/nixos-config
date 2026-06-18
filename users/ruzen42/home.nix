@@ -20,7 +20,7 @@
     ungoogled-chromium
     github-cli
     telegram-desktop
-    nushell
+    fish
     font-awesome
     thunar
     fastfetch
@@ -38,6 +38,8 @@
     userName = "ruzen42";
     userEmail = "malledeferlive@gmail.com";
   };
+
+  programs.quickshell.enable = true;
 
   gtk = {
     enable = true;

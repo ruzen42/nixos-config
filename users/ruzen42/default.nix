@@ -11,6 +11,6 @@
       "networkmanager"
       "audio"
     ];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
 }

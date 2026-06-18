@@ -7,9 +7,11 @@
   };
 
   services.displayManager = {
-    autoLogin.user = "ruzen42";
-    autoLogin.enable = true; 
-
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "sugar-dark";
+    };
     defaultSession = "niri";
   };
   
