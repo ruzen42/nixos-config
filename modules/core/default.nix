@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   networking.networkmanager.enable = true;
@@ -13,7 +13,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ neovim wget2 btop git ];
+  environment.systemPackages = with pkgs; [ neovim git ];
 
   nix.gc = {
     automatic = true;

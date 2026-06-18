@@ -13,9 +13,14 @@
       url = "github:ElyPrismLauncher/Launcher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wall-set.url = "github:ruzen42/wall-set";
   };
 
-  outputs = { self, nixpkgs, home-manager, musnix, mclauncher, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, wall-set, musnix, mclauncher, nixvim, ... }@inputs: {
     nixosConfigurations = {
       ruzenhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,6 +34,20 @@
 	          home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.ruzen42 = import ./users/ruzen42/home.nix;
           }
+        ];
+      };
+
+      ruzengame = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/ruzenhome/hardware.nix
+          ./modules/hardware/default.nix
+          ./modules/games
+          ./modules/games/scope.nix
+          ./modules/core/services.nix
+          ./modules/core
+          ./users/ruzen42
         ];
       };
     };

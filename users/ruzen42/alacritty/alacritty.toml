@@ -1,0 +1,8 @@
+[window]
+opacity = 0.7
+blur = true
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

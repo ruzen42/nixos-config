@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   users.users.ruzen42 = {
     isNormalUser = true;
@@ -11,9 +11,6 @@
       "networkmanager"
       "audio"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
-
-  programs.zsh.enable = true;
-
 }

@@ -1,8 +1,6 @@
-{ inputs, config, ...}:
+{ inputs, ...}:
 {
-  imports = [
-    inputs.niri-flake.homeModules.niri 
-  ];
+  imports = [ inputs.niri-flake.homeModules.niri ];
 
   programs.niri.settings = {
     spawn-at-startup = [
@@ -19,57 +17,66 @@
         };
         numlock = true;
       };
+      focus-follows-mouse.enable = true;
     };
 
-  xwayland-satellite.enable = true;
+    gestures = {
+      hot-corners.enable = false;
+    };
 
-  overview = {
-    workspace-shadow.color = "#4F5B58";
-  };
+    xwayland-satellite.enable = true;
 
-  binds = {
-    "Mod+Shift+T".action.spawn = [ "alacritty" ];
-    "Mod+Shift+C".action.close-window = [];
+    overview = {
+      backdrop-color = "#1E2326";
+      workspace-shadow.enable = true;
+    };
 
-    "Mod+F".action.maximize-column = [];
+    binds = {
+      "Mod+Shift+T".action.spawn = [ "alacritty" ];
+      "Mod+Shift+C".action.close-window = [];
 
-    "Mod+R".action.spawn = [ "fuzzel" ];
-    "Mod+Left".action.focus-column-left = [];
-    "Mod+Right".action.focus-column-right = [];
+      "Mod+F".action.maximize-column = [];
 
-    "Mod+Shift+Right".action.move-column-right = [];
-    "Mod+Shift+Left".action.move-column-left = [];
+      "Mod+R".action.spawn = [ "fuzzel" ];
+      "Mod+T".action.focus-column-left = [];
+      "Mod+N".action.focus-column-right = [];
+
+      "Mod+Shift+T".action.move-column-left = [];
+      "Mod+Shift+N".action.move-column-right = [];
     
-    "Mod+L".action.focus-workspace-up = [];
-    "Mod+D".action.focus-workspace-down = [];
-    "Mod+Shift+E".action.quit = [];
-    "Mod+M".action.open-overview = [];
-    "Print".action.screenshot = [];
-  };
+      "Mod+L".action.focus-workspace-up = [];
+      "Mod+D".action.focus-workspace-down = [];
+      "Mod+Shift+E".action.quit = [];
+      "Mod+M".action.open-overview = [];
+      "Print".action.screenshot = { show-pointer = false; };
+    };
   
-  prefer-no-csd = true;
+    prefer-no-csd = true;
 
-  layout = {
-    gaps = 8;
-    center-focused-column = "never";
-    default-column-width = { proportion = 0.5; };
+    layout = {
+      gaps = 10;
+      center-focused-column = "never";
+      default-column-width = { proportion = 0.5; };
 
-    tab-indicator = {
-      enable = true;
-      corner-radius = 8;
+      focus-ring = {
+        width = 3;
+        active.color = "#A7C080";
+        inactive.color = "#7A8478";
+      };
     };
-
-    focus-ring = {
-      width = 2;
-      active.color = "#A7C080";
-      inactive.color = "#7A8478";
-    };
-  };
 
     outputs."DP-2".mode = {
       height = 1080;
       width = 1920;
       refresh = 165.001;
     }; 
+
+    window-rules = [
+      {
+        match = [];
+        geometry-corner-radius = 7;
+        clip-to-geometry = true;
+      }
+    ];
   };
 }
