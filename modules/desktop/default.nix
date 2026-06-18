@@ -10,7 +10,10 @@
     sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "sugar-dark";
+    };
+    autoLogin = {
+      enable = true;
+      user = "ruzen42";
     };
     defaultSession = "niri";
   };
@@ -37,6 +40,4 @@
   powerManagement.cpuFreqGovernor = "performance";
   
   programs.gamemode.enable = true;
-
-
 }

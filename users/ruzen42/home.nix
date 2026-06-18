@@ -31,6 +31,7 @@
     ardour
     guitarix
     quickshell
+    qt6.qtwayland
   ];
 
   programs.git.settings = {

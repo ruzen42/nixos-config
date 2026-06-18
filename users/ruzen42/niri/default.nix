@@ -32,7 +32,9 @@
     };
 
     binds = {
-      "Mod+G".action = { spawn = [ "alacritty" ]; };
+      "Mod+Shift+G".action = { spawn = [ "alacritty" ]; };
+      "Mod+Shift+B".action = { spawn = [ "chromium" ]; };
+      "Mod+Shift+M".action = { spawn = [ "telegram-desktop" ]; };
       "Mod+Shift+C".action.close-window = [];
 
       "Mod+F".action.maximize-column = [];
@@ -54,12 +56,12 @@
     prefer-no-csd = true;
 
     layout = {
-      gaps = 5;
+      gaps = 7;
       center-focused-column = "never";
       default-column-width = { proportion = 0.5; };
 
       focus-ring = {
-        width = 2;
+        width = 3;
         active.color = "#A7C080";
         inactive.color = "#7A8478";
       };
