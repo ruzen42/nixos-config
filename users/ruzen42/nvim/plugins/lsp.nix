@@ -1,4 +1,4 @@
-{ helpers, ... }: 
+{ config, ... }: 
 {
   programs.nixvim.plugins = {
     lsp = {
@@ -23,8 +23,8 @@
         { name = "path"; }
         { name = "buffer"; }
       ];
-      mapping = {
-        "<Down>" = helpers.mkRaw ''
+      settings.mapping = {
+        "<Down>" = config.lib.nixvim.mkRaw ''
           cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -33,7 +33,7 @@
             end
           end, { "i", "s" })
         '';
-        "<Up>" = helpers.mkRaw ''
+        "<Up>" = config.lib.nixvim.mkRaw ''
           cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
@@ -43,7 +43,7 @@
           end, { "i", "s" })
         '';
 
-        "<Tab>" = helpers.mkRaw ''
+        "<Tab>" = config.lib.nixvim.mkRaw ''
           cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.confirm({ select = true })
