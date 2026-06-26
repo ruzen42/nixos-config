@@ -12,25 +12,27 @@
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
+    obs-studio
+    discord
     niri
     swaybg
     fuzzel
     alacritty
-    discord
     ungoogled-chromium
     github-cli
     telegram-desktop
-    fish
     font-awesome
     thunar
     fastfetch
     xwayland-satellite
-    audacious
+    #audacious
+    kdePackages.elisa
     thunderbird
     qpwgraph
     ardour
     guitarix
     quickshell
+    javaPackages.compiler.temurin-bin.jre-25
   ];
 
   programs.git.settings = {
@@ -38,7 +40,7 @@
     userName = "ruzen42";
     userEmail = "malledeferlive@gmail.com";
   };
-
+  
   programs.quickshell.enable = true;
 
   gtk = {

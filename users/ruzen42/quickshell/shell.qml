@@ -29,7 +29,8 @@ ShellRoot {
             width: clockText.implicitWidth + 30 
             height: parent.height
             
-            color: "#232A2E"
+            color: "#7E232A2C"
+            //opacity: 0.8
             radius: 7
             border.color: "#A7C080"
             border.width: 2
@@ -59,7 +60,7 @@ ShellRoot {
             width: rightContent.implicitWidth + 30
             height: parent.height
             
-            color: "#232A2E"
+            color: "#7E232A2E"
             radius: 7
             border.color: "#A7C080"
             border.width: 2
@@ -87,7 +88,7 @@ ShellRoot {
                     id: ramText
                     color: "#e67e80"
                     font.pointSize: 9
-                    text: " RAM: --%"
+                    text: "RAM: --%"
                 }
             }
         }
