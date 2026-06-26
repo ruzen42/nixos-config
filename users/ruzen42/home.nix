@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
+    inputs.weawer.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
     obs-studio
     discord
