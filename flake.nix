@@ -15,7 +15,7 @@
     };
     nixvim.url   = "github:nix-community/nixvim"; 
     wall-set.url = "github:ruzen42/wall-set";
-    weawer.url   = "github:WeaweML/lib";
+    weawer.url   = "github:WeaveML/lib";
   };
 
   outputs = { self, nixpkgs, home-manager, wall-set, weawer, musnix, mclauncher, nixvim, ... }@inputs: {

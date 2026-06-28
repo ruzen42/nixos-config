@@ -13,7 +13,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ neovim git ];
+  environment.systemPackages = with pkgs; [ neovim git btop htop unzip ];
 
   nix.gc = {
     automatic = true;
