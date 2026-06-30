@@ -11,29 +11,24 @@
   home.packages = with pkgs; [
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
-    inputs.weawer.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
-    obs-studio
-    discord
+    vesktop
     niri
     swaybg
     fuzzel
     alacritty
     ungoogled-chromium
-    github-cli
     telegram-desktop
     font-awesome
     thunar
     fastfetch
     xwayland-satellite
-    #audacious
-    kdePackages.elisa
+    mpv
     thunderbird
     qpwgraph
     ardour
     guitarix
     quickshell
-    javaPackages.compiler.temurin-bin.jre-25
   ];
 
   programs.git.settings = {
