@@ -18,7 +18,8 @@
     fuzzel
     alacritty
     ungoogled-chromium
-    telegram-desktop
+    #telegram-desktop
+    ayugram-desktop
     font-awesome
     thunar
     fastfetch
@@ -29,6 +30,8 @@
     ardour
     guitarix
     quickshell
+    jetbrains-toolbox
+    waydroid
   ];
 
   programs.git.settings = {
