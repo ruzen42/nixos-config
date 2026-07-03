@@ -1,17 +1,14 @@
 { config, ...}:
 {
   boot.loader.grub = {
-    enable = true;
-    zfsSupport = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    mirroredBoots = [
-	    { devices = [ "nodev" ]; path = "/boot"; }
-    ];
+    enable = false;
+    zfsSupport = false;
+    efiSupport = false;
   };
 
-  boot.loader.systemd-boot = {
-    enable = false;
+  boot.loader = {
+    systemd-boot.enable = true; 
+    efi.canTouchEfiVariables = true;
   };
 
   boot.zfs.extraPools = [ "storage" ];
