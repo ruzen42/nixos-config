@@ -1,4 +1,12 @@
 { inputs, pkgs, ...}:
+let 
+  devDeps = with pkgs; [
+    python314
+    jdk25
+    zed-editor
+    jetbrains-toolbox
+  ];
+in
 {
   home.username = "ruzen42";
   home.homeDirectory = "/home/ruzen42";
@@ -8,7 +16,7 @@
     ./nvim
   ];
 
-  home.packages = with pkgs; [
+    home.packages = with pkgs; [
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
@@ -25,14 +33,12 @@
     fastfetch
     xwayland-satellite
     mpv
-    thunderbird
+    #thunderbird
     qpwgraph
-    ardour
-    guitarix
+    #ardour
+    #guitarix
     quickshell
-    jetbrains-toolbox
-    waydroid
-  ];
+  ] ++ devDeps;
 
   programs.git.settings = {
     enable = true;

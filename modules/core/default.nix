@@ -13,13 +13,22 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ neovim git btop htop unzip ];
+  environment.systemPackages = with pkgs; [ neovim git btop htop unzip tree ];
 
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  nixpkgs.config.allowBroken = true;
+
+  programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    glib
+  ];
 }
 
 
