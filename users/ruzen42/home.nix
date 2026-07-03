@@ -5,6 +5,7 @@ let
     jdk25
     zed-editor
     jetbrains-toolbox
+    dotnetCorePackages.dotnet_10.sdk
   ];
 in
 {
