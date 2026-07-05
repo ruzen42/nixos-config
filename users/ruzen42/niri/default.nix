@@ -34,14 +34,14 @@
     };
 
     binds = {
-      "Mod+Shift+G".action = { spawn = [ "alacritty" ]; };
-      "Mod+Shift+B".action = { spawn = [ "chromium" ]; };
-      "Mod+Shift+M".action = { spawn = [ "telegram-desktop" ]; };
+      "Mod+Shift+G".action.spawn = [ "alacritty" ]; 
+      "Mod+Shift+B".action.spawn = [ "chromium" ]; 
+      "Mod+Shift+M".action.spawn = [ "AyuGram" ];
+      "Mod+R".action.spawn = [ "fuzzel" ];
       "Mod+Shift+C".action.close-window = [];
 
       "Mod+F".action.maximize-column = [];
 
-      "Mod+R".action.spawn = [ "fuzzel" ];
       "Mod+T".action.focus-column-left = [];
       "Mod+N".action.focus-column-right = [];
 

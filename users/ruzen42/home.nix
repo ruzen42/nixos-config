@@ -16,6 +16,7 @@ in
   imports = [ 
     ./niri
     ./nvim
+    ./fonts
   ];
 
     home.packages = with pkgs; [
