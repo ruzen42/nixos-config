@@ -1,9 +1,5 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  fonts.packages = with pkgs; [
-    ibm-plex
-  ];
-
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
@@ -12,10 +8,5 @@
       serif = [ "IBM Plex Serif" ];
     };
 
-  };
-
-  console = {
-    font = "Lat2-Terminus12";
-    useXkbConfig = true;
   };
 }

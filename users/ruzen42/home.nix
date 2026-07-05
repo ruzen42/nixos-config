@@ -23,6 +23,7 @@ in
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
+    ibm-plex
     vesktop
     niri
     swaybg
