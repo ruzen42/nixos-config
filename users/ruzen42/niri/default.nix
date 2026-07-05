@@ -5,7 +5,9 @@
   programs.niri.settings = {
     spawn-at-startup = [
       { command = [ "wall-set" "/etc/nixos/walls" ]; }
-      { command = [ "quickshell" ]; }
+      { command = [ "mako" ]; }
+      { command = [ "gnome-keyring-daemon" "--start" "--components=secrets,pkcs11,ssh"]; }
+      { command = [ "qs" ]; }
     ];
 
     input = {

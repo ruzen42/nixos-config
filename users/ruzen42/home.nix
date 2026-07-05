@@ -74,6 +74,7 @@ in
   xdg.configFile."alacritty/alacritty.toml".source = ./alacritty/alacritty.toml;
   xdg.configFile."fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
   xdg.configFile."quickshell/shell.qml".source = ./quickshell/shell.qml;
+  xdg.configFile."mako/config".source = ./mako/config;
 
   home.stateVersion = "26.05";
 }
