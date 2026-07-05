@@ -6,6 +6,7 @@ let
     zed-editor
     jetbrains-toolbox
     dotnetCorePackages.dotnet_10.sdk
+    flutter
   ];
 in
 {
@@ -34,10 +35,11 @@ in
     fastfetch
     xwayland-satellite
     mpv
+    mako 
     #thunderbird
     qpwgraph
     #ardour
-    #guitarix
+    guitarix
     quickshell
   ] ++ devDeps;
 

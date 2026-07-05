@@ -1,11 +1,5 @@
-{ config, ...}:
+{ ... }:
 {
-  boot.loader.grub = {
-    enable = false;
-    zfsSupport = false;
-    efiSupport = false;
-  };
-
   boot.loader = {
     systemd-boot.enable = true; 
     efi.canTouchEfiVariables = true;
