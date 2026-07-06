@@ -2,7 +2,7 @@
 let 
   devDeps = with pkgs; [
     python314
-    jdk25
+    cargo
     zed-editor
     jetbrains-toolbox
     dotnetCorePackages.dotnet_10.sdk
@@ -23,6 +23,7 @@ in
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
+    libnotify
     ibm-plex
     vesktop
     niri

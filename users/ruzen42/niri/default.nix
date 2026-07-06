@@ -54,9 +54,6 @@
       "Shift+Mod+L".action.move-window-to-workspace-up = [];
       "Shift+Mod+D".action.move-window-to-workspace-down = [];
 
-      "Ctrl+Shift+Mod+L".action.move-window-to-workspace-up-silent = [];
-      "Ctrl+Shift+Mod+D".action.move-window-to-workspace-down-silent = [];
-
       "Mod+Shift+E".action.quit = [];
       "Mod+M".action.open-overview = [];
       "Print".action.screenshot = { show-pointer = false; };

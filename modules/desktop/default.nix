@@ -29,7 +29,7 @@
     { domain = "@audio"; item = "rtprio"; type = "-"; value = "95"; }
   ];
   
-  boot.kernelPackages = pkgs.linuxPackages_zen; 
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   boot.kernelParams = [ 
     "threadirqs"
     "preempt=full"            
