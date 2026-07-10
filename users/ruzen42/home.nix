@@ -44,6 +44,7 @@ in
     #ardour
     guitarix
     quickshell
+    osu-lazer-bin
   ] ++ devDeps;
 
   programs.git.settings = {
