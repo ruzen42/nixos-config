@@ -41,11 +41,11 @@ in
     mako 
     #thunderbird
     qpwgraph
-    #ardour
+    ardour
     guitarix
     quickshell
     osu-lazer-bin
-  ] ++ devDeps;
+  ]; #++ devDeps;
 
   programs.git.settings = {
     enable = true;
