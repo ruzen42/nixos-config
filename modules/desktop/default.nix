@@ -29,14 +29,6 @@
     { domain = "@audio"; item = "rtprio"; type = "-"; value = "95"; }
   ];
   
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
-  boot.kernelParams = [ 
-    "threadirqs"
-    "preempt=full"            
-    "amd_pstate=passive"       
-    "usbcore.autosuspend=-1"    
-  ];
-
   powerManagement.cpuFreqGovernor = "performance";
   
   programs.gamemode.enable = true;
