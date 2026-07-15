@@ -21,4 +21,14 @@
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 75;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      Input = {
+        ClassicBoundedOnly = false;
+        UserspaceHID = false;
+      };
+    };
+  };
 }
