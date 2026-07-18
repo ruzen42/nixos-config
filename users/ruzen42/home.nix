@@ -35,6 +35,7 @@ in
     ayugram-desktop
     font-awesome
     thunar
+    thunar-volman
     fastfetch
     xwayland-satellite
     mpv
