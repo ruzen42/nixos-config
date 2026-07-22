@@ -33,6 +33,7 @@ in
     ungoogled-chromium
     #telegram-desktop
     ayugram-desktop
+    archisteamfarm
     font-awesome
     thunar
     thunar-volman
