@@ -4,6 +4,10 @@
 	services.zfs.autoSnapshot.enable = true;
   services.udisks2.enable = true;
   services.gvfs.enable = true;
+  services.archisteamfarm = {
+    enable = false;
+    web-ui.enable = true; 
+  };
   services.pipewire = {
     enable = true;
     alsa.enable = true;

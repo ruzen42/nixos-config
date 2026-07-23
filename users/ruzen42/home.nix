@@ -27,13 +27,13 @@ in
     ibm-plex
     vesktop
     niri
+    tmux
     swaybg
     fuzzel
     alacritty
     ungoogled-chromium
     #telegram-desktop
     ayugram-desktop
-    archisteamfarm
     font-awesome
     thunar
     thunar-volman
