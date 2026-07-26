@@ -15,18 +15,16 @@
     };
     nixvim.url   = "github:nix-community/nixvim"; 
     wall-set.url = "github:ruzen42/wall-set";
-    chaotic.url = "github:chaotic-cx/nyx";
-    chaotic.inputs.nixpkgs.follows = "nixpkgs";
+    #chaotic.url = "github:chaotic-cx/nyx";
   };
 
-  outputs = { self, nixpkgs, home-manager, wall-set, chaotic, musnix, mclauncher, nixvim, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, wall-set, musnix, mclauncher, nixvim, ... }@inputs: {
     nixosConfigurations = {
       ruzenhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/ruzenhome
-          chaotic.nixosModules.default 
           inputs.musnix.nixosModules.musnix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
