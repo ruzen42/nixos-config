@@ -9,13 +9,7 @@
   networking.hostId = "8425e349";
   boot.zfs.forceImportRoot = false;
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod.override {
-    structuredExtraConfig = with pkgs.lib.kernel; {
-      HZ_1000 = yes;
-      HZ = freeform "1000";
-      NO_HZ_FULL = yes;
-   };
-  };
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   boot.kernelParams = [ 
     "threadirqs"
     "preempt=full"            
