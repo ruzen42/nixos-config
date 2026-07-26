@@ -19,10 +19,11 @@ in
     ./fonts
   ];
 
-    home.packages = with pkgs; [
+  home.packages = with pkgs; [
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
+    godot-mono
     libnotify
     ibm-plex
     vesktop

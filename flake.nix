@@ -16,6 +16,7 @@
     nixvim.url   = "github:nix-community/nixvim"; 
     wall-set.url = "github:ruzen42/wall-set";
     chaotic.url = "github:chaotic-cx/nyx";
+    chaotic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, wall-set, chaotic, musnix, mclauncher, nixvim, ... }@inputs: {
