@@ -1,12 +1,9 @@
 { inputs, pkgs, ...}:
 let 
   devDeps = with pkgs; [
-    python314
-    cargo
-    zed-editor
     jetbrains-toolbox
     dotnetCorePackages.dotnet_10.sdk
-    flutter
+    godot-mono
   ];
 in
 {
@@ -23,7 +20,6 @@ in
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
     nerd-fonts.jetbrains-mono
-    godot-mono
     libnotify
     ibm-plex
     vesktop
@@ -48,7 +44,7 @@ in
     guitarix
     quickshell
     osu-lazer-bin
-  ]; #++ devDeps;
+  ] ++ devDeps;
 
   programs.git.settings = {
     enable = true;
