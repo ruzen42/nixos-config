@@ -4,6 +4,7 @@ let
     jetbrains-toolbox
     dotnetCorePackages.dotnet_10.sdk
     godot-mono
+    flutter
   ];
 in
 {

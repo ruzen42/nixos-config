@@ -5,7 +5,7 @@
   services.udisks2.enable = true;
   services.gvfs.enable = true;
   services.archisteamfarm = {
-    enable = false;
+    enable = true;
     web-ui.enable = true; 
   };
   services.pipewire = {
