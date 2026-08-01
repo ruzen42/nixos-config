@@ -5,6 +5,7 @@ let
     dotnetCorePackages.dotnet_10.sdk
     godot-mono
     flutter
+    android-tools
   ];
 in
 {
@@ -17,9 +18,23 @@ in
     ./fonts
   ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
+  };
+
   home.packages = with pkgs; [
     inputs.mclauncher.packages."x86_64-linux".default
     inputs.wall-set.packages."x86_64-linux".default
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+    nerd-fonts.jetbrains-mono
+    libnotify
+    ibm-plex
+    vesktop
     nerd-fonts.jetbrains-mono
     libnotify
     ibm-plex
