@@ -1,10 +1,10 @@
 { inputs, pkgs, ...}:
 let 
   devDeps = with pkgs; [
-    jetbrains-toolbox
-    dotnetCorePackages.dotnet_10.sdk
-    godot-mono
-    flutter
+    #jetbrains-toolbox
+    #dotnetCorePackages.dotnet_10.sdk
+    #godot-mono
+    #flutter
     android-tools
   ];
 in
@@ -28,7 +28,7 @@ in
 
   home.packages = with pkgs; [
     inputs.mclauncher.packages."x86_64-linux".default
-    inputs.wall-set.packages."x86_64-linux".default
+    edwood
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     nerd-fonts.jetbrains-mono
