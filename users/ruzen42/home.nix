@@ -28,7 +28,6 @@ in
 
   home.packages = with pkgs; [
     inputs.mclauncher.packages."x86_64-linux".default
-    edwood
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     nerd-fonts.jetbrains-mono
