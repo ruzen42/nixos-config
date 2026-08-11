@@ -1,8 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, lib, inputs, ... }:
 {
+  imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
+  
+
   boot.loader = {
-    limine.enable = true; 
+    systemd-boot.enable = lib.mkForce false;
     efi.canTouchEfiVariables = true;
+  };
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
   };
 
   boot.zfs.extraPools = [ "storage" ];

@@ -14,11 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url   = "github:nix-community/nixvim"; 
-    wall-set.url = "github:ruzen42/wall-set";
-    #chaotic.url = "github:chaotic-cx/nyx";
+    lanzaboote.url = "github:nix-community/lanzaboote/v1.1.0";
   };
 
-  outputs = { self, nixpkgs, home-manager, wall-set, musnix, mclauncher, nixvim, ... }@inputs: {
+  outputs = { self, nixpkgs, lanzaboote, home-manager, musnix, mclauncher, nixvim, ... }@inputs: {
     nixosConfigurations = {
       ruzenhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
