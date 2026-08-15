@@ -1,0 +1,14 @@
+# ~/.kshrc file
+
+export PS1="[$(uname -o)=$PWD]"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.stack/bin/"
+
+alias HISTFILE="$HOME/.ksh_history"
+alias HISTSIZE=1024
+
+set -o vi
+
+if [ -z "$TMUX" ] && [ -t 0 ]; then
+  exec tmux
+fi
+

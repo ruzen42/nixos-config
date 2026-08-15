@@ -11,8 +11,6 @@
       "networkmanager"
       "audio"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.ksh;
   };
-
-  programs.zsh.enable = true;
 }

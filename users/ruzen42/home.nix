@@ -15,6 +15,7 @@ in
     ./niri
     ./nvim
     ./fonts
+    ./tmux
   ];
 
   xdg.portal = {
@@ -92,6 +93,7 @@ in
   xdg.configFile."fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
   xdg.configFile."quickshell/shell.qml".source = ./quickshell/shell.qml;
   xdg.configFile."mako/config".source = ./mako/config;
+  home.file.".kshrc".source = ./ksh/kshrc;
 
   home.stateVersion = "26.05";
 }
