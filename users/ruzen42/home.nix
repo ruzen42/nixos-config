@@ -1,11 +1,10 @@
 { inputs, pkgs, ...}:
 let 
   devDeps = with pkgs; [
-    #jetbrains-toolbox
-    #dotnetCorePackages.dotnet_10.sdk
-    #godot-mono
-    #flutter
+    flutter
     android-tools
+    go
+    gh
   ];
 in
 {
@@ -44,8 +43,8 @@ in
     fuzzel
     alacritty
     ungoogled-chromium
-    #telegram-desktop
-    ayugram-desktop
+    telegram-desktop
+    #ayugram-desktop
     font-awesome
     thunar
     thunar-volman
@@ -53,12 +52,12 @@ in
     xwayland-satellite
     mpv
     mako 
-    #thunderbird
+    thunderbird
     qpwgraph
     ardour
     guitarix
     quickshell
-    osu-lazer-bin
+    obs-studio
   ] ++ devDeps;
 
   programs.git.settings = {
