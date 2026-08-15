@@ -25,9 +25,10 @@
       sensible
       vim-tmux-navigator
       {
-        plugin = catppuccin;
+        plugin = minimal-tmux-status;
         extraConfig = ''
-          set -g @catppuccin_flavour 'mocha'
+          set -g @minimal-tmux-fg "#a7c080" 
+          set -g @minimal-tmux-bg "#272e33" 
         '';
       }
     ];

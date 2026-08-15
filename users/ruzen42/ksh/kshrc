@@ -1,10 +1,9 @@
 # ~/.kshrc file
 
-export PS1="[$(uname -o)=$PWD]"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.stack/bin/"
 
-alias HISTFILE="$HOME/.ksh_history"
-alias HISTSIZE=1024
+set HISTFILE="$HOME/.ksh_history"
+set HISTSIZE=1024
 
 set -o vi
 
