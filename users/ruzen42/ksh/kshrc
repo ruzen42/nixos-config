@@ -2,8 +2,8 @@
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.stack/bin/"
 
-set HISTFILE="$HOME/.ksh_history"
-set HISTSIZE=1024
+export HISTFILE="$HOME/.ksh_history"
+export HISTSIZE=4096
 
 set -o vi
 

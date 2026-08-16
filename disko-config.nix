@@ -15,7 +15,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "fmask=0022" "dmask=0022" ]; # Взято из твоего hardware.nix
+                mountOptions = [ "fmask=0022" "dmask=0022" ]; 
               };
             };
             zfs = {
@@ -32,13 +32,12 @@
     zpool = {
       tank = {
         type = "zpool";
-        # Дополнительные флаги пула по вкусу, например, ашафт для SSD/NVMe
-        # options = { ashift = "12"; }; 
+        options = { ashift = "12"; }; 
         rootFsOptions = {
           acltype = "posixacl";
           xattr = "sa";
           "com.sun:auto-snapshot" = "false";
-          mountpoint = "none"; # Запрещаем монтировать сам корень пула
+          mountpoint = "none"; 
         };
         datasets = {
           root = {
@@ -50,7 +49,6 @@
             type = "zfs_fs";
             mountpoint = "/nix";
             options.mountpoint = "legacy";
-            # Для /nix на ZFS полезно отключать atime
             options.atime = "off"; 
           };
           var = {
