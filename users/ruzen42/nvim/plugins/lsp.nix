@@ -6,6 +6,7 @@
       servers = {
         nil_ls.enable = true;     
         pyright.enable = true;   
+        gopls.enable = true;   
         rust_analyzer = {       
           enable = true;
           installRustc = false;
