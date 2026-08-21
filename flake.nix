@@ -41,7 +41,6 @@
           ./hosts/ruzenhome/hardware.nix
           ./modules/hardware/default.nix
           ./modules/games
-          ./modules/virtualisation
           ./modules/games/scope.nix
           ./modules/core/services.nix
           ./modules/core

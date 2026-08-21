@@ -7,6 +7,7 @@
       ../../modules/core
       ../../modules/core/services.nix
       ../../modules/desktop
+      ../../modules/virtualisation
       ../../modules/games
       ../../modules/bluetooth
       ../../modules/hardware
