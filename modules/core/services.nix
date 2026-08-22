@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
 	services.zfs.autoScrub.enable = true;
 	services.zfs.autoSnapshot.enable = true;
@@ -10,11 +10,11 @@
   };
   services.ollama = {
     enable = true;
-    acceleration = "rocm";
+    package = pkgs.ollama-rocm; 
   };
   services.open-webui = {
     enable = true;
-    port = 6768;
+    port = 8081;
     environment = {
       OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
       WEBUI_AUTH = "False";
