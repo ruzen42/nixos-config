@@ -31,6 +31,7 @@ in
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     nerd-fonts.jetbrains-mono
+    godot-mono
     libnotify
     ibm-plex
     vesktop
