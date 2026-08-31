@@ -5,6 +5,8 @@ let
     android-tools
     go
     gh
+    jetbrains-toolbox
+    dotnet-sdk_10
   ];
 in
 {
