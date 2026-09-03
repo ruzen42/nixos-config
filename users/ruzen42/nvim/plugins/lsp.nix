@@ -12,7 +12,10 @@
           installRustc = false;
           installCargo = false;
         };
-        hls.enable = true;
+        hls = { 
+          enable = true;
+          installGhc = true;
+        };
       };
     };
     

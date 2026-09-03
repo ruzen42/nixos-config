@@ -1,12 +1,31 @@
 { ... }: 
 {
+  programs.nixvim.keymaps = [
+    {
+      mode = "n";
+      key = "<C-l>";
+      action = "<CMD>Oil<CR>";
+      options.desc = "Open Oil file manager";
+    }
+  ];
+
   programs.nixvim.plugins = {
     oil.enable = true;
     lualine.enable = true;
+
+    codewindow = {
+      enable = true;
+      settings = {
+        auto_enable = true; 
+        window_side = "right"; 
+      };
+    };
+
     treesitter = {
       enable = true;
       settings.highlight.enable = true;
     };
+
     toggleterm = {
       enable = true;
       settings = {
@@ -19,10 +38,9 @@
     };
   };
   
-  programs.nixvim.colorschemes.everforest = {
+  programs.nixvim.colorschemes.cendre = {
     enable = true;
     settings = {
-      background = "hard";
       enable_italic = 1;
       transparent_background = 1;
     };

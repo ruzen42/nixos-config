@@ -2,7 +2,6 @@
 let 
   devDeps = with pkgs; [
     flutter
-    android-tools
     go
     gh
     jetbrains-toolbox
