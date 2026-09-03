@@ -13,9 +13,9 @@ ShellRoot {
             right: true
         }
         margins {
-            bottom: 5 
-            left: 5
-            right: 5
+            bottom: 2 
+            left: 2
+            right: 2
         }
         
         implicitHeight: 28
@@ -29,11 +29,11 @@ ShellRoot {
             width: clockText.implicitWidth + 30 
             height: parent.height
             
-            color: "#7E232A2C"
+            color: "#4B710117"
             //opacity: 0.8
-            radius: 7
-            border.color: "#A7C080"
-            border.width: 2
+            radius: 2
+            border.color: "#F75C7B"
+            border.width: 1
 
             Text {
                 id: clockText
@@ -60,10 +60,10 @@ ShellRoot {
             width: rightContent.implicitWidth + 30
             height: parent.height
             
-            color: "#7E232A2E"
-            radius: 7
-            border.color: "#A7C080"
-            border.width: 2
+            color: "#4B710117"
+            radius: 2
+            border.color: "#F75C7B"
+            border.width: 1
 
             Row {
                 id: rightContent
@@ -71,73 +71,10 @@ ShellRoot {
                 spacing: 20
 
                 Text {
-                    id: wifiText
-                    color: "#a6e3a1"
-                    font.pointSize: 9
-                    text: "  Wifi..."
-                }
-
-                Text {
-                    id: btText
-                    color: "#89b4fa"
-                    font.pointSize: 9
-                    text: " Bluetooth..."
-                }
-
-                Text {
                     id: ramText
-                    color: "#e67e80"
+                    color: "#D3C6AA"
                     font.pointSize: 9
                     text: "RAM: --%"
-                }
-            }
-        }
-    }
-
-    Process {
-        id: wifiProc
-        command: ["nmcli", "-t", "-f", "ACTIVE,SSID", "dev", "wifi"]
-        running: false
-
-        stdout: StdioCollector {
-            onStreamFinished: {
-                let lines = text.split("\n");
-                let connected = false;
-                
-                for (let line of lines) {
-                    if (line.startsWith("yes:")) {
-                        let ssid = line.split(":")[1];
-                        wifiText.text = "  " + ssid;
-                        connected = true;
-                        break;
-                    }
-                }
-                if (!connected) wifiText.text = "󰖪  Disconnected";
-            }
-        }
-    }
-
-    Process {
-        id: btProc
-        command: ["bluetoothctl", "devices", "Connected"]
-        running: false
-
-        stdout: StdioCollector {
-            onStreamFinished: {
-                let cleanText = text.replace(/^\s+|\s+$/g, '');
-                
-                if (cleanText === "") {
-                    btText.text = " No Devices";
-                } else {
-                    let firstDeviceLine = cleanText.split("\n")[0];
-                    let parts = firstDeviceLine.split(" ");
-                    if (parts.length >= 3) {
-                        parts.shift();
-                        parts.shift();
-                        btText.text = " " + parts.join(" ");
-                    } else {
-                        btText.text = " Connected";
-                    }
                 }
             }
         }
@@ -165,7 +102,7 @@ ShellRoot {
                 if (memTotal > 0) {
                     let memUsed = memTotal - memAvailable;
                     let percentage = Math.round((memUsed / memTotal) * 100);
-                    ramText.text = " " + percentage + "%";
+                    ramText.text = "RAM " + percentage + "%";
                 }
             }
         }
@@ -177,12 +114,6 @@ ShellRoot {
         repeat: true
         triggeredOnStart: true
         onTriggered: {
-            wifiProc.running = false;
-            wifiProc.running = true;
-
-            btProc.running = false;
-            btProc.running = true;
-
             ramProc.running = false;
             ramProc.running = true;
         }

@@ -4,7 +4,7 @@
 
   programs.niri.settings = {
     spawn-at-startup = [
-      { command = [ "swaybg" "-i" "/etc/nixos/walls/main.jpg" ]; }
+      { command = [ "swaybg" "-i" "/etc/nixos/walls/wall.jpg" ]; }
       { command = [ "mako" ]; }
       { command = [ "qs" ]; }
     ];
@@ -61,14 +61,14 @@
     prefer-no-csd = true;
 
     layout = {
-      gaps = 7;
+      gaps = 2;
       center-focused-column = "never";
       default-column-width = { proportion = 0.5; };
 
       focus-ring = {
-        width = 3;
-        active.color = "#A7C080";
-        inactive.color = "#7A8478";
+        width = 1;
+        active.color = "#F75C7B";
+        inactive.color = "#A20021";
       };
     };
 
@@ -82,10 +82,10 @@
       {
         matches = [];
         geometry-corner-radius = {
-          bottom-left = 5.0;
-          bottom-right = 5.0;
-          top-right = 5.0;
-          top-left = 5.0;
+          bottom-left = 2.0;
+          bottom-right = 2.0;
+          top-right = 2.0;
+          top-left = 2.0;
         };
         clip-to-geometry = true;
       }

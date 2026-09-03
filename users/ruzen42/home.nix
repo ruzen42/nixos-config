@@ -37,6 +37,8 @@ in
     libnotify
     ibm-plex
     vesktop
+    terminus_font
+    terminus_font_ttf
     nerd-fonts.jetbrains-mono
     libnotify
     ibm-plex
@@ -52,7 +54,6 @@ in
     font-awesome
     thunar
     thunar-volman
-    fastfetch
     xwayland-satellite
     mpv
     mako 
@@ -93,7 +94,6 @@ in
   
   xdg.configFile."fuzzel/fuzzel.ini".source = ./fuzzel/fuzzel.ini;
   xdg.configFile."alacritty/alacritty.toml".source = ./alacritty/alacritty.toml;
-  xdg.configFile."fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
   xdg.configFile."quickshell/shell.qml".source = ./quickshell/shell.qml;
   xdg.configFile."mako/config".source = ./mako/config;
   xdg.configFile."guitarix/banks/Sapphire.gx".source = ./guitarix/banks/Sapphire.gx;

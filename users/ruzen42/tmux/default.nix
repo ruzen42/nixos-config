@@ -27,8 +27,8 @@
       {
         plugin = minimal-tmux-status;
         extraConfig = ''
-          set -g @minimal-tmux-fg "#a7c080" 
-          set -g @minimal-tmux-bg "#272e33" 
+          set -g @minimal-tmux-fg "#F75C7B" 
+          set -g @minimal-tmux-bg "#710117" 
         '';
       }
     ];
