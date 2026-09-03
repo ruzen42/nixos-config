@@ -3,6 +3,7 @@
 export PATH="$PATH:$HOME/.local/bin:$HOME/.stack/bin/"
 
 export HISTFILE="$HOME/.ksh_history"
+export EDITOR="nvim"
 export HISTSIZE=4096
 
 set -o vi
