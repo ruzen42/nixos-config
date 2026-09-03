@@ -1,0 +1,69 @@
+.
+├── build.sh
+├── disko-config.nix
+├── file
+├── flake.lock
+├── flake.nix
+├── hosts
+│   └── ruzenhome
+│       ├── default.nix
+│       └── hardware.nix
+├── iso
+│   ├── flake.lock
+│   ├── flake.nix
+│   └── iso.nix
+├── modules
+│   ├── bluetooth
+│   │   └── default.nix
+│   ├── core
+│   │   ├── default.nix
+│   │   └── services.nix
+│   ├── desktop
+│   │   └── default.nix
+│   ├── games
+│   │   ├── default.nix
+│   │   └── scope.nix
+│   ├── hardware
+│   │   └── default.nix
+│   └── virtualisation
+│       └── default.nix
+├── users
+│   └── ruzen42
+│       ├── alacritty
+│       │   └── alacritty.toml
+│       ├── default.nix
+│       ├── fastfetch
+│       │   └── config.jsonc
+│       ├── fonts
+│       │   └── default.nix
+│       ├── fuzzel
+│       │   └── fuzzel.ini
+│       ├── guitarix
+│       │   └── banks
+│       │       └── Sapphire.gx
+│       ├── home.nix
+│       ├── ksh
+│       │   └── kshrc
+│       ├── mako
+│       │   └── config
+│       ├── niri
+│       │   └── default.nix
+│       ├── nvim
+│       │   ├── default.nix
+│       │   ├── keymaps.nix
+│       │   ├── options.nix
+│       │   └── plugins
+│       │       ├── default.nix
+│       │       ├── lsp.nix
+│       │       └── ui.nix
+│       ├── quickshell
+│       │   └── shell.qml
+│       └── tmux
+│           └── default.nix
+└── walls
+    ├── 13977413.png
+    ├── 13977563.jpg
+    ├── bg1.png
+    └── main.jpg
+
+27 directories, 40 files
