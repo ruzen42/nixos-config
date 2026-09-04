@@ -1,48 +1,79 @@
-{ ... }: 
+{ pkgs, ... }: 
 {
-  programs.nixvim.keymaps = [
-    {
-      mode = "n";
-      key = "<C-l>";
-      action = "<CMD>Oil<CR>";
-      options.desc = "Open Oil file manager";
-    }
-  ];
+  programs.nixvim = {
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "cendre";
+        src = pkgs.fetchFromGitHub {
+          owner = "aejkatappaja";
+          repo = "cendre";
+          rev = "main"; 
+          hash = "sha256-Zz4qQE1YFoKWnYi7KLhz/667TozSQz1lQYviPkL7Kqs="; 
+        };
+      })
+    ];
 
-  programs.nixvim.plugins = {
-    oil.enable = true;
-    lualine.enable = true;
+    colorscheme = "cendre";
 
-    codewindow = {
-      enable = true;
-      settings = {
-        auto_enable = true; 
-        window_side = "right"; 
+    extraConfigLua = ''
+      vim.cmd([[
+        highlight Normal guibg=NONE ctermbg=NONE
+        highlight NormalFloat guibg=NONE ctermbg=NONE
+        highlight NormalNC guibg=NONE ctermbg=NONE
+        highlight SignColumn guibg=NONE ctermbg=NONE
+      ]])
+    '';
+
+    plugins = {
+      oil.enable = true;
+
+      lualine.enable = true;
+
+      aerial = {
+        enable = true;
+        settings = {
+          layout = {
+            default_direction = "right";
+            placement = "window";
+          };
+          backends = [ "treesitter" "lsp" "markdown" "man" ];
+          open_automatic = true;
+          close_automatic_events = [
+            "unsupported"
+            "switch_buffer"
+          ];
+          highlight_on_hover = true;
+        };
+      };
+
+      treesitter = {
+        enable = true;
+        settings = {
+          highlight.enable = true;
+          auto_install = true;
+          ensure_installed = "all";
+        };
+      };
+
+      toggleterm = {
+        enable = true;
+        settings = {
+          direction = "horizontal"; 
+          size = 15;
+          start_in_insert = true;
+          insert_mappings = true;
+          terminal_mappings = true;
+        };
       };
     };
 
-    treesitter = {
-      enable = true;
-      settings.highlight.enable = true;
-    };
-
-    toggleterm = {
-      enable = true;
-      settings = {
-        direction = "horizontal"; 
-        size = 15;
-        start_in_insert = true;
-        insert_mappings = true;
-        terminal_mappings = true;
-      };
-    };
-  };
-  
-  programs.nixvim.colorschemes.cendre = {
-    enable = true;
-    settings = {
-      enable_italic = 1;
-      transparent_background = 1;
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<C-l>";
+        action = "<CMD>vsplit | wincmd H | vertical resize 30 | Oil<CR>";
+        options.desc = "Open Oil in a left sidebar";
+      }
+    ];
   };
 }
