@@ -39,29 +39,16 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/ruzenhome
+          ./hosts/ruzenserver
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 	          home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.ruzen42 = import ./users/ruzen42/home.nix;
+            home-manager.users.fuze = import ./users/fuze/home.nix;
           }
         ];
       };
 
-      ruzengame = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/ruzenhome/hardware.nix
-          ./modules/hardware/default.nix
-          ./modules/games
-          ./modules/games/scope.nix
-          ./modules/core/services.nix
-          ./modules/core
-          ./users/ruzen42
-        ];
-      };
     };
   };
 }
