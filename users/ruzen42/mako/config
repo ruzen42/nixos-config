@@ -13,4 +13,4 @@ background-color=#1D0515
 text-color=#D3C6AA
 border-color=#F75C7B
 progress-color=source #CC183C
-default-timeout=2500
+default-timeout=5000

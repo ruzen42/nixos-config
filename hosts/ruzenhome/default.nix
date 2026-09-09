@@ -3,14 +3,22 @@
 {
   imports =
     [ 
+      # Hardware and Disks
       ./hardware.nix
+      ./disks.nix
+
+      # Core Modules
       ../../modules/core
       ../../modules/core/services.nix
-      ../../modules/desktop
+      ../../modules/hardware
       ../../modules/virtualisation
+
+      # Desktop and Personal Modules
+      ../../modules/desktop
       ../../modules/games
       ../../modules/bluetooth
-      ../../modules/hardware
+
+      # User Configuration
       ../../users/ruzen42
     ];
 
@@ -18,4 +26,3 @@
 
   system.stateVersion = "26.05"; 
 }
-

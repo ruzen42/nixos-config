@@ -1,6 +1,4 @@
 {
-  description = "ruzen42 flake";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager = {
@@ -10,10 +8,13 @@
     niri-flake.url = "github:sodiboo/niri-flake";
     musnix.url = "github:musnix/musnix";
     mclauncher = {
-      url = "github:ElyPrismLauncher/Launcher";
+      url = "github:FreesmTeam/FreesmLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim.url   = "github:nix-community/nixvim"; 
+    nixvim = {
+      url   = "github:nix-community/nixvim"; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote.url = "github:nix-community/lanzaboote/v1.1.0";
   };
 
@@ -25,6 +26,20 @@
         modules = [
           ./hosts/ruzenhome
           inputs.musnix.nixosModules.musnix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+	          home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.ruzen42 = import ./users/ruzen42/home.nix;
+          }
+        ];
+      };
+
+      ruzenserver = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/ruzenhome
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

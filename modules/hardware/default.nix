@@ -13,6 +13,8 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
+  powerManagement.cpuFreqGovernor = "performance";
+
   boot.zfs.extraPools = [ "storage" ];
   networking.hostId = "8425e349";
   boot.zfs.forceImportRoot = false;
@@ -30,14 +32,5 @@
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 75;
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      Input = {
-        ClassicBoundedOnly = false;
-        UserspaceHID = false;
-      };
-    };
-  };
+
 }

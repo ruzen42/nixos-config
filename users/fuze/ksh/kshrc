@@ -1,0 +1,14 @@
+# ~/.kshrc file
+
+export PATH="$PATH:$HOME/.local/bin:$HOME/.stack/bin/"
+
+export HISTFILE="$HOME/.ksh_history"
+export EDITOR="nvim"
+export HISTSIZE=4096
+
+set -o vi
+
+if [ -z "$TMUX" ] && [ -t 0 ]; then
+  exec tmux
+fi
+

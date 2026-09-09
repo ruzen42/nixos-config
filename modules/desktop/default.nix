@@ -29,7 +29,5 @@
     { domain = "@audio"; item = "rtprio"; type = "-"; value = "95"; }
   ];
   
-  powerManagement.cpuFreqGovernor = "performance";
-  
   programs.gamemode.enable = true;
 }

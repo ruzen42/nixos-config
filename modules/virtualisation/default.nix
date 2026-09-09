@@ -32,7 +32,6 @@
     table inet nat {
       chain postrouting {
         type nat hook postrouting priority srcnat; policy accept;
-        # NAT66 для выхода контейнеров во внешний IPv6-интернет
         ip6 saddr fd42:4242:4242:1::/64 oifname "eth0" masquerade
       }
     }
