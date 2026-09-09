@@ -1,7 +1,7 @@
-{ pkgs, ...}:
+{ pkgs, lib, ...}:
 {
   home.username = "fuze";
-  home.homeDirectory = "/srv/users/fuze";
+  home.homeDirectory = lib.mkForce "/srv/users/fuze";
 
   imports = [ 
     ./nvim
@@ -13,7 +13,7 @@
     terminus_font
     terminus_font_ttf
     tmux
-  ] ++ devDeps;
+  ]; 
 
   programs.git.settings = {
     enable = true;
