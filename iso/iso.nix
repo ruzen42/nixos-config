@@ -3,15 +3,20 @@
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
-  boot.supportedFilesystems = [ "btrfs" "vfat" "xfs" "zfs" ];
+  boot.supportedFilesystems = [ "vfat" "zfs" ];
   nixpkgs.config.allowUnfree = true;
 
-  isoImage.squashfsCompression = "zstd -Xcompression-level 19"; 
-  networking.networkmanager.enable = true;
+  documentation.enable = false;
+  documentation.nixos.enable = false;
+
+  isoImage.squashfsCompression = "xz -Xbcj x86 -b 1M";
+  networking.networkmanager.enable = lib.mkDefault false;
+  
+  environment.defaultPackages = [];
 
   environment.systemPackages = with pkgs; [
     neovim
     git
+    wget2
   ];
 }
