@@ -1,4 +1,4 @@
-{ config, ... }: 
+{ config, pkgs, ... }: 
 {
   programs.nixvim.plugins = {
     lsp = {
@@ -7,6 +7,10 @@
         nil_ls.enable = true;     
         pyright.enable = true;   
         gopls.enable = true;   
+        millet = {
+          enable = true;
+          package = pkgs.millet; 
+        };        
         rust_analyzer = {       
           enable = true;
           installRustc = false;
