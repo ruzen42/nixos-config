@@ -6,7 +6,6 @@
     spawn-at-startup = [
       { command = [ "swaybg" "-i" "/etc/nixos/walls/wall.jpg" ]; }
       { command = [ "mako" ]; }
-      { command = [ "qs" ]; }
     ];
 
     input = {
