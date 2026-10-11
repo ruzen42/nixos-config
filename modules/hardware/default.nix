@@ -42,5 +42,4 @@
     algorithm = "zstd";
     enable = true;
   };
-
 }

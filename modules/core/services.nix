@@ -35,8 +35,6 @@
       enableNotifications = true;
       freeMemThreshold = 4;
       freeSwapThreshold = 10;
-      avoidPatterns = "^(niri|pipewire|wireplumber|dbus-daemon|systemd)$";
-      preferPatterns = "^(steam)$";
     };
   };
 }
